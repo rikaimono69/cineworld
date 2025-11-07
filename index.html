@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineWorld</title>
+
+    <link href="./node_modules/air-datepicker/air-datepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <img id="logo-img" src="logomark.svg" alt="logotype" />
+                <h1 class="text-title">CineWorld</h1>
+            </a>
+            <div class="theme-switcher">
+                <label class="theme-switcher__label">
+                    <input type="checkbox" class="theme-switcher__input" />
+                    <span class="theme-switcher__slider"></span>
+                    <span id="theme-text-label" class="text-bold-18">Dark theme</span>
+                </label>
+            </div>
+        </div>
+        <span class="header__divider"></span>
+    </header>
+
+    <main class="main">
+        <section class="section">
+            <form action="thanks.html" id="registration-form" class="registration">
+                <h1 class="text-title">Register for CineWorld</h1>
+
+                <div class="registration__row">
+                    <div class="field-group" data-validation-type="name">
+                        <label for="first-name-input" class="text-bold-16">First Name</label>
+                        <input id="first-name-input" class="field-group__input" type="text" placeholder="Thomas"
+                            required>
+                    </div>
+                    <div class="field-group" data-validation-type="name">
+                        <label for="last-name-input" class="text-bold-16">Last Name</label>
+                        <input id="last-name-input" class="field-group__input" type="text" placeholder="Edison"
+                            required>
+                    </div>
+                </div>
+
+                <div class="registration__row">
+                    <div class="field-group">
+                        <label for="date-of-birth" class="text-bold-16">Date of Birth</label>
+                        <input id="date-of-birth" class="field-group__input" type="text" placeholder="DD.MM.YYYY"
+                            readonly>
+                    </div>
+                    <div class="field-group" data-validation-type="email">
+                        <label for="email-input" class="text-bold-16">Email</label>
+                        <input id="email-input" class="field-group__input" type="text" placeholder="email@email.ru"
+                            required>
+                    </div>
+                </div>
+
+                <div class="registration__row">
+                    <div class="field-group" data-validation-type="password">
+                        <label for="password-input" class="text-bold-16">Password</label>
+                        <input id="password-input" class="field-group__input" type="password" placeholder="*******"
+                            required>
+                    </div>
+                    <div class="field-group" data-validation-type="repeat-password">
+                        <label for="repeat-password-input" class="text-bold-16">Repeat Password</label>
+                        <input id="repeat-password-input" class="field-group__input" type="password"
+                            placeholder="*******" required>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label for="genre-select-custom" class="text-bold-16">Select your favourite genre</label>
+                    <div class="custom-select" id="genre-select-custom">
+                        <div class="custom-select__header field-group__input" data-value="">
+                            <span class="custom-select__current-text custom-select__current-text_placeholder">
+                                Favorite genre
+                            </span>
+                            <svg class="custom-select__arrow" width="14" height="7" viewBox="0 0 14 7" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L7 6L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="custom-select__list" style="max-height: 235px;">
+                            <div class="custom-select__option" data-value="comedy">Comedy</div>
+                            <div class="custom-select__option" data-value="horror">Horror</div>
+                            <div class="custom-select__option" data-value="adventure">Adventure</div>
+                            <div class="custom-select__option" data-value="documentary">Documentary</div>
+                            <div class="custom-select__option" data-value="cartoon">Cartoon</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="genre" id="hidden-genre-input" value="">
+                </div>
+
+                <div class="registration__column">
+                    <div class="field-group">
+                        <label class="checkbox">
+                            <input type="checkbox" class="checkbox__input">
+                            <span class="checkbox__mark"></span>
+                            <span class="checkbox__text text-bold-16">
+                                Subscribe to the latest updates of site materials
+                            </span> 
+                        </label>
+                    </div>
+                    <div class="field-group" data-validation-type="checkbox">
+                        <label class="checkbox">
+                            <input id="consent-checkbox" type="checkbox" class="checkbox__input" required>
+                            <span class="checkbox__mark"></span>
+                            <span class="checkbox__text text-bold-16">
+                                I accept the terms of the <a href="personaldata.html" class="text-link">"Personal Data Processing Policy"</a> and, for the purpose
+                                of establishing feedback with me, I consent to the processing of my personal data.
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" id="register-button" class="button button-default text-button"
+                    disabled>Register</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="datepicker-modal js-datepicker-modal">
+        <div class="datepicker-modal__overlay js-datepicker-overlay"></div>
+        <div class="datepicker-modal__content js-datepicker-content">
+        </div>
+    </div>
+
+    <script src="select.js"></script>
+
+    <script src="./node_modules/air-datepicker/air-datepicker.js"></script>
+
+    <script src="datepicker.js"></script>
+    <script src="validation.js"></script>
+    <script src="theme.js"></script>
+
+</body>
+
+</html>
