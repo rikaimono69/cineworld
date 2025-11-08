@@ -115,15 +115,7 @@ input::placeholder {
 .text-link {
     text-decoration: underline;
     color: var(--black);
-    transition: border-bottom-color var(--transition-duration), color var(--transition-duration);
-}
-
-.text-link:hover {
-    color: var(--violet);
-}
-
-.text-link:visited {
-    color: var(--violet-light);
+    transition: color var(--transition-duration);
 }
 
 /* LAYOUT AND STRUCTURE */
@@ -351,12 +343,16 @@ body.dark-theme .checkbox__input:checked {
     filter: invert(1) hue-rotate(180deg);
 }
 
-.checkbox:hover .checkbox__text {
+.checkbox:hover .checkbox__text, .checkbox:hover .text-link {
     color: var(--violet);
 }
 
 .checkbox:hover .checkbox__input {
     border-color: var(--violet);
+}
+
+.text-link:visited {
+    color: var(--violet-light);
 }
 
 /* CUSTOM SELECT COMPONENT */
